@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# ApplePi.sh: Installs and configures Shairport Sync as an AirPlay 2 receiver
+# ApplePi.sh: install and configure Shairport Sync as an AirPlay 2 Receiver
 # on 32-bit Kali Linux for Raspberry Pi 4, named "ApplePi"
 
 set -euo pipefail
@@ -37,6 +37,15 @@ apt-get install -y \
   libavformat-dev \
   uuid-dev \
   libgcrypt-dev
+
+# 🔧 Bluetooth fix for Kali on Raspberry Pi
+echo "Enabling Bluetooth services for Raspberry Pi 4..."
+systemctl enable --now hciuart.service
+systemctl enable --now bluetooth.service
+
+# 🔧 Set audio output to headphone jack (not HDMI)
+echo "Switching audio output to 3.5mm jack..."
+amixer -c 0 set numid=3 1 || echo "Failed to set audio output. Run 'alsamixer' manually."
 
 # Build nqptp (AirPlay 2 support)
 echo "Installing nqptp..."
@@ -99,5 +108,6 @@ echo "Your Raspberry Pi should now appear as 'ApplePi' in the AirPlay menu."
 echo "If there's no sound, try running 'alsamixer' or reboot the system:"
 echo "sudo reboot"
 exit 0
+
 
 
