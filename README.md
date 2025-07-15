@@ -3,7 +3,7 @@
   Set up your Raspberry Pi as an AirPlay 2 Receiver
 </p>
 
-<pre><code>curl -sSL https://raw.githubusercontent.com/sudo-self/ApplePi-Shareplay/main/ApplePi.sh | sudo bash</code></pre>
+<pre><code>git clone https://github.com/sudo-self/ApplePi-Shareplay.git && cd ApplePi-Shareplay && sudo bash ApplePi.sh </code></pre>
 
 <p><strong>Note:</strong> You can also download and review the script before running it:</p>
 
