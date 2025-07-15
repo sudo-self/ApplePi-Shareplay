@@ -107,7 +107,9 @@ echo "🍏 Apple Pi Baked!"
 echo "Your Raspberry Pi should now appear as 'ApplePi' in the AirPlay menu."
 echo "If there's no sound, try running 'alsamixer' or reboot the system:"
 echo "sudo reboot"
+
+echo
+echo "📱 Scan this QR code to install again or share with others:"
+qrencode -t ansiutf8 'curl -sSL https://raw.githubusercontent.com/sudo-self/ApplePi-Shareplay/main/ApplePi.sh | sudo bash' || echo "qrencode not installed."
+
 exit 0
-
-
-
